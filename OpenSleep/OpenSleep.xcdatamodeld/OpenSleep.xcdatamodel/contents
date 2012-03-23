@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Log" parentEntity="ServerObject" syncable="YES">
+    <entity name="ZZLog" representedClassName="ZZLog" parentEntity="ZZServerObject" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="logEntries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LogEntry" inverseName="log" inverseEntity="LogEntry" syncable="YES"/>
+        <relationship name="logEntries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ZZLogEntry" inverseName="log" inverseEntity="ZZLogEntry" syncable="YES"/>
     </entity>
-    <entity name="LogEntry" syncable="YES">
+    <entity name="ZZLogEntry" representedClassName="ZZLogEntry" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="log" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="logEntries" inverseEntity="Log" syncable="YES"/>
+        <relationship name="log" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ZZLog" inverseName="logEntries" inverseEntity="ZZLog" syncable="YES"/>
     </entity>
-    <entity name="ServerObject" isAbstract="YES" syncable="YES">
+    <entity name="ZZServerObject" representedClassName="ZZServerObject" isAbstract="YES" syncable="YES">
         <attribute name="needsUpload" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
-    <entity name="Session" syncable="YES">
+    <entity name="ZZSession" representedClassName="ZZSession" syncable="YES">
         <attribute name="alarmTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="logAccelerometer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="logMicrophone" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Log" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="LogEntry" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Session" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="ServerObject" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="ZZLog" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="ZZLogEntry" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ZZServerObject" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="ZZSession" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

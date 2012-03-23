@@ -26,13 +26,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-	
-	self.window.rootViewController = [[[ZZMainViewController alloc] init] autorelease];
-	
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+	UINavigationController *rootNavigationController = (UINavigationController *)self.window.rootViewController;
+//    MyViewController *myViewController = (MyViewController *)[rootNavigationController topViewController];
+    // Configure myViewController.
     return YES;
 }
 

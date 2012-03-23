@@ -70,9 +70,8 @@
 
 	cell.accessoryView=nil;
 
-	
 	switch ([indexPath section]) {
-		case MAIN_SECTION:
+		case 0:
 			cell.accessoryView = [[[UISwitch alloc] init] autorelease];
 //TODO			((UISwitch *)cell.accessoryView).isOn=[Session sharedSession].
 			break;
