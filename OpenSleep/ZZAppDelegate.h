@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZZMainViewController.h"
 
-@interface ZZAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ZZAppDelegate : UIResponder <UIApplicationDelegate>{
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -15,6 +15,10 @@
 		01C3F310151C2B0100DED74F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F30F151C2B0100DED74F /* main.m */; };
 		01C3F314151C2B0100DED74F /* ZZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F313151C2B0100DED74F /* ZZAppDelegate.m */; };
 		01C3F317151C2B0200DED74F /* OpenSleep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F315151C2B0200DED74F /* OpenSleep.xcdatamodeld */; };
+		01C3F31E151C2B6500DED74F /* MainPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F31D151C2B6500DED74F /* MainPage.xib */; };
+		01C3F320151C2C1A00DED74F /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F31F151C2C1A00DED74F /* MainView.xib */; };
+		01C3F324151C2D6100DED74F /* ZZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F322151C2D6100DED74F /* ZZMainViewController.m */; };
+		01C3F325151C2D6100DED74F /* ZZMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F323151C2D6100DED74F /* ZZMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +27,18 @@
 		01C3F303151C2B0100DED74F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01C3F305151C2B0100DED74F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		01C3F307151C2B0100DED74F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		01C3F30B151C2B0100DED74F /* OpenSleep-Info.plist */ = {isa = PBXFileReference; path = "OpenSleep-Info.plist"; sourceTree = "<group>"; };
+		01C3F30B151C2B0100DED74F /* OpenSleep-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenSleep-Info.plist"; sourceTree = "<group>"; };
 		01C3F30D151C2B0100DED74F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01C3F30F151C2B0100DED74F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		01C3F311151C2B0100DED74F /* OpenSleep-Prefix.pch */ = {isa = PBXFileReference; path = "OpenSleep-Prefix.pch"; sourceTree = "<group>"; };
-		01C3F312151C2B0100DED74F /* ZZAppDelegate.h */ = {isa = PBXFileReference; path = ZZAppDelegate.h; sourceTree = "<group>"; };
+		01C3F311151C2B0100DED74F /* OpenSleep-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSleep-Prefix.pch"; sourceTree = "<group>"; };
+		01C3F312151C2B0100DED74F /* ZZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAppDelegate.h; sourceTree = "<group>"; };
 		01C3F313151C2B0100DED74F /* ZZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZAppDelegate.m; sourceTree = "<group>"; };
 		01C3F316151C2B0200DED74F /* OpenSleep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenSleep.xcdatamodel; sourceTree = "<group>"; };
+		01C3F31D151C2B6500DED74F /* MainPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPage.xib; sourceTree = "<group>"; };
+		01C3F31F151C2C1A00DED74F /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		01C3F321151C2D6100DED74F /* ZZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMainViewController.h; sourceTree = "<group>"; };
+		01C3F322151C2D6100DED74F /* ZZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMainViewController.m; sourceTree = "<group>"; };
+		01C3F323151C2D6100DED74F /* ZZMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,11 @@
 		01C3F2F2151C2B0100DED74F = {
 			isa = PBXGroup;
 			children = (
+				01C3F31D151C2B6500DED74F /* MainPage.xib */,
+				01C3F31F151C2C1A00DED74F /* MainView.xib */,
+				01C3F321151C2D6100DED74F /* ZZMainViewController.h */,
+				01C3F322151C2D6100DED74F /* ZZMainViewController.m */,
+				01C3F323151C2D6100DED74F /* ZZMainViewController.xib */,
 				01C3F309151C2B0100DED74F /* OpenSleep */,
 				01C3F300151C2B0100DED74F /* Frameworks */,
 				01C3F2FE151C2B0100DED74F /* Products */,
@@ -149,6 +163,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01C3F30E151C2B0100DED74F /* InfoPlist.strings in Resources */,
+				01C3F31E151C2B6500DED74F /* MainPage.xib in Resources */,
+				01C3F320151C2C1A00DED74F /* MainView.xib in Resources */,
+				01C3F325151C2D6100DED74F /* ZZMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +179,7 @@
 				01C3F310151C2B0100DED74F /* main.m in Sources */,
 				01C3F314151C2B0100DED74F /* ZZAppDelegate.m in Sources */,
 				01C3F317151C2B0200DED74F /* OpenSleep.xcdatamodeld in Sources */,
+				01C3F324151C2D6100DED74F /* ZZMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

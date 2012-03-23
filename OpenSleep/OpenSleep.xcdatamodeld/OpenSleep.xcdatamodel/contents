@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Log" parentEntity="ServerObject" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="logEntries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LogEntry" inverseName="log" inverseEntity="LogEntry" syncable="YES"/>
+    </entity>
+    <entity name="LogEntry" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="log" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Log" inverseName="logEntries" inverseEntity="Log" syncable="YES"/>
+    </entity>
+    <entity name="ServerObject" isAbstract="YES" syncable="YES">
+        <attribute name="needsUpload" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Session" syncable="YES">
+        <attribute name="alarmTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logAccelerometer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="logMicrophone" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Log" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="LogEntry" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Session" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="ServerObject" positionX="160" positionY="192" width="128" height="60"/>
+    </elements>
 </model>
