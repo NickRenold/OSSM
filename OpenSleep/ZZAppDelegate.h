@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZZMainViewController.h"
+#import "ZZConfigurationViewController.h"
 
 @interface ZZAppDelegate : UIResponder <UIApplicationDelegate>{
 }

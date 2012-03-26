@@ -26,9 +26,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	UINavigationController *rootNavigationController = (UINavigationController *)self.window.rootViewController;
-//    MyViewController *myViewController = (MyViewController *)[rootNavigationController topViewController];
-    // Configure myViewController.
     return YES;
 }
 

@@ -23,10 +23,15 @@
 		01C3F310151C2B0100DED74F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F30F151C2B0100DED74F /* main.m */; };
 		01C3F314151C2B0100DED74F /* ZZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F313151C2B0100DED74F /* ZZAppDelegate.m */; };
 		01C3F317151C2B0200DED74F /* OpenSleep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F315151C2B0200DED74F /* OpenSleep.xcdatamodeld */; };
-		01C3F31E151C2B6500DED74F /* MainPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F31D151C2B6500DED74F /* MainPage.xib */; };
-		01C3F320151C2C1A00DED74F /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F31F151C2C1A00DED74F /* MainView.xib */; };
-		01C3F324151C2D6100DED74F /* ZZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3F322151C2D6100DED74F /* ZZMainViewController.m */; };
-		01C3F325151C2D6100DED74F /* ZZMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3F323151C2D6100DED74F /* ZZMainViewController.xib */; };
+		01CA2FC7151EDD2C007B1D52 /* ZZConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FC6151EDD2C007B1D52 /* ZZConfigurationViewController.m */; };
+		01CA2FCA151EDE52007B1D52 /* ZZLogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FC9151EDE52007B1D52 /* ZZLogsViewController.m */; };
+		01CA2FCD151EDE83007B1D52 /* ZZLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FCC151EDE83007B1D52 /* ZZLogCell.m */; };
+		01CA2FD415202374007B1D52 /* _ZZSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FD115202374007B1D52 /* _ZZSession.m */; };
+		01CA2FD515202374007B1D52 /* ZZSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FD315202374007B1D52 /* ZZSession.m */; };
+		01CA2FD8152025BB007B1D52 /* ZZLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FD7152025BB007B1D52 /* ZZLogger.m */; };
+		01CA2FDE152028FC007B1D52 /* _ZZAccelerometerLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FDB152028FC007B1D52 /* _ZZAccelerometerLogEntry.m */; };
+		01CA2FDF152028FC007B1D52 /* ZZAccelerometerLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FDD152028FC007B1D52 /* ZZAccelerometerLogEntry.m */; };
+		01CA2FE4152029F5007B1D52 /* ZZDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2FE3152029F5007B1D52 /* ZZDataViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,11 +63,24 @@
 		01C3F312151C2B0100DED74F /* ZZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAppDelegate.h; sourceTree = "<group>"; };
 		01C3F313151C2B0100DED74F /* ZZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZAppDelegate.m; sourceTree = "<group>"; };
 		01C3F316151C2B0200DED74F /* OpenSleep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenSleep.xcdatamodel; sourceTree = "<group>"; };
-		01C3F31D151C2B6500DED74F /* MainPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPage.xib; sourceTree = "<group>"; };
-		01C3F31F151C2C1A00DED74F /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		01C3F321151C2D6100DED74F /* ZZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMainViewController.h; sourceTree = "<group>"; };
-		01C3F322151C2D6100DED74F /* ZZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMainViewController.m; sourceTree = "<group>"; };
-		01C3F323151C2D6100DED74F /* ZZMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZZMainViewController.xib; sourceTree = "<group>"; };
+		01CA2FC5151EDD2C007B1D52 /* ZZConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZConfigurationViewController.h; path = ../ZZConfigurationViewController.h; sourceTree = "<group>"; };
+		01CA2FC6151EDD2C007B1D52 /* ZZConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZConfigurationViewController.m; path = ../ZZConfigurationViewController.m; sourceTree = "<group>"; };
+		01CA2FC8151EDE52007B1D52 /* ZZLogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZLogsViewController.h; path = ../ZZLogsViewController.h; sourceTree = "<group>"; };
+		01CA2FC9151EDE52007B1D52 /* ZZLogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZLogsViewController.m; path = ../ZZLogsViewController.m; sourceTree = "<group>"; };
+		01CA2FCB151EDE83007B1D52 /* ZZLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZLogCell.h; path = ../ZZLogCell.h; sourceTree = "<group>"; };
+		01CA2FCC151EDE83007B1D52 /* ZZLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZLogCell.m; path = ../ZZLogCell.m; sourceTree = "<group>"; };
+		01CA2FD015202374007B1D52 /* _ZZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ZZSession.h; path = CoreData/_ZZSession.h; sourceTree = "<group>"; };
+		01CA2FD115202374007B1D52 /* _ZZSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ZZSession.m; path = CoreData/_ZZSession.m; sourceTree = "<group>"; };
+		01CA2FD215202374007B1D52 /* ZZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZSession.h; path = CoreData/ZZSession.h; sourceTree = "<group>"; };
+		01CA2FD315202374007B1D52 /* ZZSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZSession.m; path = CoreData/ZZSession.m; sourceTree = "<group>"; };
+		01CA2FD6152025BB007B1D52 /* ZZLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLogger.h; sourceTree = "<group>"; };
+		01CA2FD7152025BB007B1D52 /* ZZLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLogger.m; sourceTree = "<group>"; };
+		01CA2FDA152028FC007B1D52 /* _ZZAccelerometerLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ZZAccelerometerLogEntry.h; path = CoreData/_ZZAccelerometerLogEntry.h; sourceTree = "<group>"; };
+		01CA2FDB152028FC007B1D52 /* _ZZAccelerometerLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ZZAccelerometerLogEntry.m; path = CoreData/_ZZAccelerometerLogEntry.m; sourceTree = "<group>"; };
+		01CA2FDC152028FC007B1D52 /* ZZAccelerometerLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZZAccelerometerLogEntry.h; path = CoreData/ZZAccelerometerLogEntry.h; sourceTree = "<group>"; };
+		01CA2FDD152028FC007B1D52 /* ZZAccelerometerLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZZAccelerometerLogEntry.m; path = CoreData/ZZAccelerometerLogEntry.m; sourceTree = "<group>"; };
+		01CA2FE2152029F5007B1D52 /* ZZDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZDataViewController.h; sourceTree = "<group>"; };
+		01CA2FE3152029F5007B1D52 /* ZZDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZDataViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +101,10 @@
 		011ED65F151C5E870017C94C /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				011ED661151C5E970017C94C /* _ZZLog.h */,
-				011ED662151C5E970017C94C /* _ZZLog.m */,
-				011ED663151C5E970017C94C /* _ZZLogEntry.h */,
-				011ED664151C5E970017C94C /* _ZZLogEntry.m */,
-				011ED665151C5E970017C94C /* _ZZServerObject.h */,
-				011ED666151C5E970017C94C /* _ZZServerObject.m */,
+				01CA2FE1152029CF007B1D52 /* Machine Files */,
+				01CA2FD215202374007B1D52 /* ZZSession.h */,
+				01CA2FD315202374007B1D52 /* ZZSession.m */,
+				01C3F315151C2B0200DED74F /* OpenSleep.xcdatamodeld */,
 				011ED667151C5E970017C94C /* CoreDataModel.h */,
 				011ED668151C5E970017C94C /* ZZLog.h */,
 				011ED669151C5E970017C94C /* ZZLog.m */,
@@ -98,6 +114,7 @@
 				011ED66D151C5E970017C94C /* ZZServerObject.m */,
 			);
 			name = "Core Data";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		01C3F2F2151C2B0100DED74F = {
@@ -106,12 +123,6 @@
 				011ED675151C5FB00017C94C /* FeatureList.rtf */,
 				011ED677151C627D0017C94C /* Storyboard.storyboard */,
 				011ED674151C5EF90017C94C /* CWLSynthesizeSingleton.h */,
-				011ED65F151C5E870017C94C /* Core Data */,
-				01C3F31D151C2B6500DED74F /* MainPage.xib */,
-				01C3F31F151C2C1A00DED74F /* MainView.xib */,
-				01C3F321151C2D6100DED74F /* ZZMainViewController.h */,
-				01C3F322151C2D6100DED74F /* ZZMainViewController.m */,
-				01C3F323151C2D6100DED74F /* ZZMainViewController.xib */,
 				01C3F309151C2B0100DED74F /* OpenSleep */,
 				01C3F300151C2B0100DED74F /* Frameworks */,
 				01C3F2FE151C2B0100DED74F /* Products */,
@@ -140,9 +151,13 @@
 		01C3F309151C2B0100DED74F /* OpenSleep */ = {
 			isa = PBXGroup;
 			children = (
+				01CA2FE0152029C8007B1D52 /* Data View */,
+				01CA2FD9152025CA007B1D52 /* Logger */,
+				01CA2FCF15201C61007B1D52 /* Logs View */,
+				01CA2FCE15201C51007B1D52 /* Config View */,
 				01C3F312151C2B0100DED74F /* ZZAppDelegate.h */,
 				01C3F313151C2B0100DED74F /* ZZAppDelegate.m */,
-				01C3F315151C2B0200DED74F /* OpenSleep.xcdatamodeld */,
+				011ED65F151C5E870017C94C /* Core Data */,
 				01C3F30A151C2B0100DED74F /* Supporting Files */,
 			);
 			path = OpenSleep;
@@ -157,6 +172,63 @@
 				01C3F311151C2B0100DED74F /* OpenSleep-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01CA2FCE15201C51007B1D52 /* Config View */ = {
+			isa = PBXGroup;
+			children = (
+				01CA2FC5151EDD2C007B1D52 /* ZZConfigurationViewController.h */,
+				01CA2FC6151EDD2C007B1D52 /* ZZConfigurationViewController.m */,
+			);
+			name = "Config View";
+			sourceTree = "<group>";
+		};
+		01CA2FCF15201C61007B1D52 /* Logs View */ = {
+			isa = PBXGroup;
+			children = (
+				01CA2FCB151EDE83007B1D52 /* ZZLogCell.h */,
+				01CA2FCC151EDE83007B1D52 /* ZZLogCell.m */,
+				01CA2FC8151EDE52007B1D52 /* ZZLogsViewController.h */,
+				01CA2FC9151EDE52007B1D52 /* ZZLogsViewController.m */,
+			);
+			name = "Logs View";
+			sourceTree = "<group>";
+		};
+		01CA2FD9152025CA007B1D52 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				01CA2FD6152025BB007B1D52 /* ZZLogger.h */,
+				01CA2FD7152025BB007B1D52 /* ZZLogger.m */,
+			);
+			name = Logger;
+			sourceTree = "<group>";
+		};
+		01CA2FE0152029C8007B1D52 /* Data View */ = {
+			isa = PBXGroup;
+			children = (
+				01CA2FE2152029F5007B1D52 /* ZZDataViewController.h */,
+				01CA2FE3152029F5007B1D52 /* ZZDataViewController.m */,
+			);
+			name = "Data View";
+			sourceTree = "<group>";
+		};
+		01CA2FE1152029CF007B1D52 /* Machine Files */ = {
+			isa = PBXGroup;
+			children = (
+				011ED661151C5E970017C94C /* _ZZLog.h */,
+				011ED662151C5E970017C94C /* _ZZLog.m */,
+				011ED663151C5E970017C94C /* _ZZLogEntry.h */,
+				011ED664151C5E970017C94C /* _ZZLogEntry.m */,
+				011ED665151C5E970017C94C /* _ZZServerObject.h */,
+				011ED666151C5E970017C94C /* _ZZServerObject.m */,
+				01CA2FDA152028FC007B1D52 /* _ZZAccelerometerLogEntry.h */,
+				01CA2FDB152028FC007B1D52 /* _ZZAccelerometerLogEntry.m */,
+				01CA2FDC152028FC007B1D52 /* ZZAccelerometerLogEntry.h */,
+				01CA2FDD152028FC007B1D52 /* ZZAccelerometerLogEntry.m */,
+				01CA2FD015202374007B1D52 /* _ZZSession.h */,
+				01CA2FD115202374007B1D52 /* _ZZSession.m */,
+			);
+			name = "Machine Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				01C3F30E151C2B0100DED74F /* InfoPlist.strings in Resources */,
-				01C3F31E151C2B6500DED74F /* MainPage.xib in Resources */,
-				01C3F320151C2C1A00DED74F /* MainView.xib in Resources */,
-				01C3F325151C2D6100DED74F /* ZZMainViewController.xib in Resources */,
 				011ED676151C5FB00017C94C /* FeatureList.rtf in Resources */,
 				011ED678151C627D0017C94C /* Storyboard.storyboard in Resources */,
 			);
@@ -229,13 +298,21 @@
 				01C3F310151C2B0100DED74F /* main.m in Sources */,
 				01C3F314151C2B0100DED74F /* ZZAppDelegate.m in Sources */,
 				01C3F317151C2B0200DED74F /* OpenSleep.xcdatamodeld in Sources */,
-				01C3F324151C2D6100DED74F /* ZZMainViewController.m in Sources */,
 				011ED66E151C5E970017C94C /* _ZZLog.m in Sources */,
 				011ED66F151C5E970017C94C /* _ZZLogEntry.m in Sources */,
 				011ED670151C5E970017C94C /* _ZZServerObject.m in Sources */,
 				011ED671151C5E970017C94C /* ZZLog.m in Sources */,
 				011ED672151C5E970017C94C /* ZZLogEntry.m in Sources */,
 				011ED673151C5E970017C94C /* ZZServerObject.m in Sources */,
+				01CA2FC7151EDD2C007B1D52 /* ZZConfigurationViewController.m in Sources */,
+				01CA2FCA151EDE52007B1D52 /* ZZLogsViewController.m in Sources */,
+				01CA2FCD151EDE83007B1D52 /* ZZLogCell.m in Sources */,
+				01CA2FD415202374007B1D52 /* _ZZSession.m in Sources */,
+				01CA2FD515202374007B1D52 /* ZZSession.m in Sources */,
+				01CA2FD8152025BB007B1D52 /* ZZLogger.m in Sources */,
+				01CA2FDE152028FC007B1D52 /* _ZZAccelerometerLogEntry.m in Sources */,
+				01CA2FDF152028FC007B1D52 /* ZZAccelerometerLogEntry.m in Sources */,
+				01CA2FE4152029F5007B1D52 /* ZZDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +425,8 @@
 				01C3F316151C2B0200DED74F /* OpenSleep.xcdatamodel */,
 			);
 			currentVersion = 01C3F316151C2B0200DED74F /* OpenSleep.xcdatamodel */;
-			path = OpenSleep.xcdatamodeld;
+			name = OpenSleep.xcdatamodeld;
+			path = OpenSleep/OpenSleep.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
