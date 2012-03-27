@@ -136,11 +136,11 @@
 	
 	// Save the log
 	self.log.endTime=[NSDate date];
-	NSError *error;
-	if(![((ZZAppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext save:&error]){
-		NSLog(@"Error saving ZZLog object: %@",[error localizedDescription]);
+	NSError *error=nil;
+	[((ZZAppDelegate *)[UIApplication sharedApplication].delegate) saveContext];
+//		NSLog(@"Error saving ZZLog object: %@",[error localizedDescription]);
 		//TODO show alertview popup with error
-	}
+//	}
 }
 
 #pragma mark - Camera
@@ -192,7 +192,7 @@
 	accelEvent.yValue = acceleration.y;
 	accelEvent.zValue = acceleration.z;
 	
-//	[self.log.logEntriesSet addObject:<#(id)#>]	
+	[self.log.accelerometerLogEntriesSet addObject:accelEvent];	
 }
 
 #pragma mark - Table view data source

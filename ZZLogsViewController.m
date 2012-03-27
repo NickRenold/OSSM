@@ -42,6 +42,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+	self.fetchedResultsController.delegate=nil;
+	self.fetchedResultsController=nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -176,14 +178,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+	ZZLog *log = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	
+	
+	NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDir = [documentPaths objectAtIndex:0];
+	NSString *logPath = [NSString stringWithFormat:@"%@",[documentsDir stringByAppendingPathComponent:@"log.csv"]];
+	[[NSFileManager defaultManager] createFileAtPath:logPath contents:nil attributes:nil];
+	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
+	[fileHandler seekToEndOfFile];
+	
+	NSString *headers = [NSString stringWithString:@"Time (in seconds since start), accelX, accelY, accelZ\n"];
+	[fileHandler writeData:[headers dataUsingEncoding:NSASCIIStringEncoding]];
+	
+	for(ZZAccelerometerLogEntry *logEntry in log.accelerometerLogEntries){
+		NSString *logEntryString = [NSString stringWithFormat:@"%f, %f, %f, %f\n",(double)[logEntry.endTime timeIntervalSinceDate:log.startTime],logEntry.xValue,logEntry.yValue,logEntry.zValue];
+		[fileHandler writeData:[logEntryString dataUsingEncoding:NSASCIIStringEncoding]];
+	}
+	[fileHandler closeFile];
 }
 
 #pragma mark - Fetched results controller delegate
