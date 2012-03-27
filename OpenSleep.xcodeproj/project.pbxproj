@@ -15,6 +15,7 @@
 		011ED673151C5E970017C94C /* ZZServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 011ED66D151C5E970017C94C /* ZZServerObject.m */; };
 		011ED676151C5FB00017C94C /* FeatureList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 011ED675151C5FB00017C94C /* FeatureList.rtf */; };
 		011ED678151C627D0017C94C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011ED677151C627D0017C94C /* Storyboard.storyboard */; };
+		01AFB61C15223B280078998E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01AFB61B15223B280078998E /* MessageUI.framework */; };
 		01C3F302151C2B0100DED74F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C3F301151C2B0100DED74F /* UIKit.framework */; };
 		01C3F304151C2B0100DED74F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C3F303151C2B0100DED74F /* Foundation.framework */; };
 		01C3F306151C2B0100DED74F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C3F305151C2B0100DED74F /* CoreGraphics.framework */; };
@@ -51,6 +52,7 @@
 		011ED674151C5EF90017C94C /* CWLSynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLSynthesizeSingleton.h; sourceTree = "<group>"; };
 		011ED675151C5FB00017C94C /* FeatureList.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = FeatureList.rtf; sourceTree = "<group>"; };
 		011ED677151C627D0017C94C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		01AFB61B15223B280078998E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		01C3F2FD151C2B0100DED74F /* OpenSleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenSleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C3F301151C2B0100DED74F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01C3F303151C2B0100DED74F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AFB61C15223B280078998E /* MessageUI.framework in Frameworks */,
 				01C3F302151C2B0100DED74F /* UIKit.framework in Frameworks */,
 				01C3F304151C2B0100DED74F /* Foundation.framework in Frameworks */,
 				01C3F306151C2B0100DED74F /* CoreGraphics.framework in Frameworks */,
@@ -140,6 +143,7 @@
 		01C3F300151C2B0100DED74F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01AFB61B15223B280078998E /* MessageUI.framework */,
 				01C3F301151C2B0100DED74F /* UIKit.framework */,
 				01C3F303151C2B0100DED74F /* Foundation.framework */,
 				01C3F305151C2B0100DED74F /* CoreGraphics.framework */,

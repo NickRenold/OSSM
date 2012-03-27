@@ -12,7 +12,7 @@
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="accelerometerLogEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ZZLogEntry" inverseName="log" inverseEntity="ZZLogEntry" syncable="YES"/>
+        <relationship name="accelerometerLogEntries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ZZAccelerometerLogEntry" inverseName="log" inverseEntity="ZZLogEntry" syncable="YES"/>
         <relationship name="cameraLogEntries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ZZLogEntry" inverseName="log" inverseEntity="ZZLogEntry" syncable="YES"/>
         <relationship name="microphoneLogEntries" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ZZLogEntry" inverseName="log" inverseEntity="ZZLogEntry" syncable="YES"/>
     </entity>
@@ -32,7 +32,7 @@
     </entity>
     <elements>
         <element name="ZZAccelerometerLogEntry" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="ZZLog" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="ZZLog" positionX="160" positionY="192" width="128" height="135"/>
         <element name="ZZLogEntry" positionX="160" positionY="192" width="128" height="90"/>
         <element name="ZZServerObject" positionX="160" positionY="192" width="128" height="60"/>
         <element name="ZZSession" positionX="160" positionY="192" width="128" height="105"/>

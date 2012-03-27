@@ -95,8 +95,9 @@
 	self.microphoneSwitch.enabled=NO;
 	
 	// Create log object
-	self.log=[ZZLog insertInManagedObjectContext:
-			  ((ZZAppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+	self.log=[NSEntityDescription insertNewObjectForEntityForName:@"ZZLog" inManagedObjectContext:((ZZAppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
+//	[ZZLog insertInManagedObjectContext:
+//			  ((ZZAppDelegate *)[UIApplication sharedApplication].delegate).managedObjectContext];
 	self.log.startTime=[NSDate date];
 	
 	NSError *error;
@@ -170,7 +171,8 @@
 	double prevAccelZ=0.0;
 	
 	ZZAccelerometerLogEntry *accelLogEntry;
-	if((accelLogEntry = [self.log.accelerometerLogEntries lastObject])){
+	//TODO set is not ordered
+	if((accelLogEntry = [self.log.accelerometerLogEntries anyObject])){
 		prevAccelX=accelLogEntry.xValue;
 		prevAccelY=accelLogEntry.yValue;
 		prevAccelZ=accelLogEntry.zValue;
@@ -191,6 +193,7 @@
 	accelEvent.xValue = acceleration.x;
 	accelEvent.yValue = acceleration.y;
 	accelEvent.zValue = acceleration.z;
+	accelEvent.endTime=[NSDate date];
 	
 	[self.log.accelerometerLogEntriesSet addObject:accelEvent];	
 }

@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "CoreDataModel.h"
 #import "ZZAppDelegate.h"
 #import	"ZZLogCell.h"
 
+
 @interface ZZLogsViewController : UITableViewController
 <
-NSFetchedResultsControllerDelegate
+NSFetchedResultsControllerDelegate,
+MFMailComposeViewControllerDelegate
 >
 
 @property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;

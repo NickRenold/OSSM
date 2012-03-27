@@ -43,7 +43,6 @@
 {
     [super viewDidUnload];
 	self.fetchedResultsController.delegate=nil;
-	self.fetchedResultsController=nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -196,7 +195,58 @@
 		[fileHandler writeData:[logEntryString dataUsingEncoding:NSASCIIStringEncoding]];
 	}
 	[fileHandler closeFile];
+	[self displayComposerSheet];
 }
+
+#pragma mark - Data Handling
+
+-(void)displayComposerSheet 
+{
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    [picker setSubject:@"Sleep log"];
+	
+	NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDir = [documentPaths objectAtIndex:0];
+	NSString *logPath = [NSString stringWithFormat:@"%@",[documentsDir stringByAppendingPathComponent:@"log.csv"]];
+	
+    // Attach an image to the email
+	[picker addAttachmentData:[NSData dataWithContentsOfFile:logPath]  mimeType:nil fileName:@"log.csv"];
+	 
+    // Fill out the email body text
+    NSString *emailBody = @"My sleep log is attached";
+    [picker setMessageBody:emailBody isHTML:NO];
+    [self presentModalViewController:picker animated:YES];
+	
+    [picker release];
+}
+
+#pragma mark - MFMailComposeViewController Delegate
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error 
+{   
+    // Notifies users about errors associated with the interface
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Result: canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Result: saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Result: sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Result: failed");
+            break;
+        default:
+            NSLog(@"Result: not sent");
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 #pragma mark - Fetched results controller delegate
 /*
