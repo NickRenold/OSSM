@@ -10,6 +10,7 @@
 
 @interface ZZConfigurationViewController ()
 @property int accelerometerCounter;
+@property (nonatomic, retain) NSMutableArray* accelerometerBuffer;
 
 @end
 
@@ -20,6 +21,7 @@
 @synthesize cameraSwitch;
 @synthesize log=_log;
 @synthesize accelerometerCounter=_accelerometerCounter;
+@synthesize accelerometerBuffer=_accelerometerBuffer;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -125,12 +127,17 @@
 
 //Instantly start the logging
 -(void)startLogging{
+	//Keep app from being idle and locking
+	[UIApplication sharedApplication].idleTimerDisabled = YES;
+	
 	if(self.accelerometerSwitch.isOn){
 		[self startAccelerometer];
 	}
 }
 
 -(void)stopLogging{
+	//Keep app from being idle and locking
+	[UIApplication sharedApplication].idleTimerDisabled = NO;
 	
 	// Stop the hardware
 	[self stopAccelerometer];
@@ -151,6 +158,8 @@
 #pragma mark - Accelerometer
 #define kAccelerometerFrequency        50.0 //Hz
 -(void)startAccelerometer{
+	self.accelerometerBuffer=[NSMutableArray arrayWithCapacity:kAccelerometerFrequency];
+	
 	UIAccelerometer*  theAccelerometer = [UIAccelerometer sharedAccelerometer];
 	theAccelerometer.updateInterval = 1 / kAccelerometerFrequency;
 	theAccelerometer.delegate = self;
@@ -172,7 +181,7 @@
 //	double prevAccelY=0.0;
 //	double prevAccelZ=0.0;
 	
-	ZZAccelerometerLogEntry *accelLogEntry;
+//	ZZAccelerometerLogEntry *accelLogEntry;
 	//TODO set is not ordered
 //	if((accelLogEntry = [self.log.accelerometerLogEntries anyObject])){
 //		prevAccelX=accelLogEntry.xValue;
@@ -198,8 +207,11 @@
 	accelEvent.endTime=[NSDate date];
 	
 	[self.log.accelerometerLogEntriesSet addObject:accelEvent];	
+
+//	[self.accelerometerBuffer addObject:acceleration];
 	self.accelerometerCounter++;
 	if(self.accelerometerCounter>kAccelerometerFrequency){
+		self.accelerometerCounter=0;
 		[self.log.managedObjectContext save:nil];
 	}
 }
@@ -211,6 +223,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
