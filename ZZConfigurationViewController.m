@@ -9,6 +9,7 @@
 #import "ZZConfigurationViewController.h"
 
 @interface ZZConfigurationViewController ()
+@property int accelerometerCounter;
 
 @end
 
@@ -18,6 +19,7 @@
 @synthesize microphoneSwitch;
 @synthesize cameraSwitch;
 @synthesize log=_log;
+@synthesize accelerometerCounter=_accelerometerCounter;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+	self.accelerometerCounter=0;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -166,36 +168,40 @@
 // TODO: aggregate data for each second
 #define kFilteringFactor 0.1
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
-	double prevAccelX=0.0;
-	double prevAccelY=0.0;
-	double prevAccelZ=0.0;
+//	double prevAccelX=0.0;
+//	double prevAccelY=0.0;
+//	double prevAccelZ=0.0;
 	
 	ZZAccelerometerLogEntry *accelLogEntry;
 	//TODO set is not ordered
-	if((accelLogEntry = [self.log.accelerometerLogEntries anyObject])){
-		prevAccelX=accelLogEntry.xValue;
-		prevAccelY=accelLogEntry.yValue;
-		prevAccelZ=accelLogEntry.zValue;
-	}
+//	if((accelLogEntry = [self.log.accelerometerLogEntries anyObject])){
+//		prevAccelX=accelLogEntry.xValue;
+//		prevAccelY=accelLogEntry.yValue;
+//		prevAccelZ=accelLogEntry.zValue;
+//	}
 	
     // Subtract the low-pass value from the current value to get a simplified high-pass filter
 	// copied from iOS developer docs
-    double accelX = acceleration.x - ( (acceleration.x * kFilteringFactor) + (prevAccelX * (1.0 - kFilteringFactor)) );
-    double accelY = acceleration.y - ( (acceleration.y * kFilteringFactor) + (prevAccelY * (1.0 - kFilteringFactor)) );
-    double accelZ = acceleration.z - ( (acceleration.z * kFilteringFactor) + (prevAccelZ * (1.0 - kFilteringFactor)) );
+//    double accelX = acceleration.x - ( (acceleration.x * kFilteringFactor) + (prevAccelX * (1.0 - kFilteringFactor)) );
+//    double accelY = acceleration.y - ( (acceleration.y * kFilteringFactor) + (prevAccelY * (1.0 - kFilteringFactor)) );
+//    double accelZ = acceleration.z - ( (acceleration.z * kFilteringFactor) + (prevAccelZ * (1.0 - kFilteringFactor)) );
 	
 	// Use the acceleration data.
 	ZZAccelerometerLogEntry* accelEvent = [ZZAccelerometerLogEntry insertInManagedObjectContext:self.log.managedObjectContext];
-	accelEvent.valueValue = sqrtf(powf(accelX,2.0) + powf(accelY,2.0) + powf(accelZ,2.0));
-	accelEvent.filteredXValue = accelX;
-	accelEvent.filteredYValue = accelY;
-	accelEvent.filteredZValue = accelZ;
+//	accelEvent.valueValue = sqrtf(powf(accelX,2.0) + powf(accelY,2.0) + powf(accelZ,2.0));
+//	accelEvent.filteredXValue = accelX;
+//	accelEvent.filteredYValue = accelY;
+//	accelEvent.filteredZValue = accelZ;
 	accelEvent.xValue = acceleration.x;
 	accelEvent.yValue = acceleration.y;
 	accelEvent.zValue = acceleration.z;
 	accelEvent.endTime=[NSDate date];
 	
 	[self.log.accelerometerLogEntriesSet addObject:accelEvent];	
+	self.accelerometerCounter++;
+	if(self.accelerometerCounter>kAccelerometerFrequency){
+		[self.log.managedObjectContext save:nil];
+	}
 }
 
 #pragma mark - Table view data source

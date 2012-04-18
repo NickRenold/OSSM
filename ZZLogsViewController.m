@@ -187,7 +187,7 @@
 	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:logPath];
 	[fileHandler seekToEndOfFile];
 	
-	NSString *headers = [NSString stringWithString:@"Time (in seconds since start), accelX, accelY, accelZ\n"];
+	NSString *headers = [NSString stringWithString:@"\"Time (in seconds since start)\", accelX, accelY, accelZ\n"];
 	[fileHandler writeData:[headers dataUsingEncoding:NSASCIIStringEncoding]];
 	
 	for(ZZAccelerometerLogEntry *logEntry in log.accelerometerLogEntries){

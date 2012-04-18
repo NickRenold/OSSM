@@ -4,9 +4,6 @@
 #import "_ZZAccelerometerLogEntry.h"
 
 const struct ZZAccelerometerLogEntryAttributes ZZAccelerometerLogEntryAttributes = {
-	.filteredX = @"filteredX",
-	.filteredY = @"filteredY",
-	.filteredZ = @"filteredZ",
 	.x = @"x",
 	.y = @"y",
 	.z = @"z",
@@ -44,18 +41,6 @@ const struct ZZAccelerometerLogEntryFetchedProperties ZZAccelerometerLogEntryFet
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"filteredXValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"filteredX"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
-	if ([key isEqualToString:@"filteredYValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"filteredY"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
-	if ([key isEqualToString:@"filteredZValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"filteredZ"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-	}
 	if ([key isEqualToString:@"xValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"x"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -71,84 +56,6 @@ const struct ZZAccelerometerLogEntryFetchedProperties ZZAccelerometerLogEntryFet
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic filteredX;
-
-
-
-- (double)filteredXValue {
-	NSNumber *result = [self filteredX];
-	return [result doubleValue];
-}
-
-- (void)setFilteredXValue:(double)value_ {
-	[self setFilteredX:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveFilteredXValue {
-	NSNumber *result = [self primitiveFilteredX];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveFilteredXValue:(double)value_ {
-	[self setPrimitiveFilteredX:[NSNumber numberWithDouble:value_]];
-}
-
-
-
-
-
-@dynamic filteredY;
-
-
-
-- (double)filteredYValue {
-	NSNumber *result = [self filteredY];
-	return [result doubleValue];
-}
-
-- (void)setFilteredYValue:(double)value_ {
-	[self setFilteredY:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveFilteredYValue {
-	NSNumber *result = [self primitiveFilteredY];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveFilteredYValue:(double)value_ {
-	[self setPrimitiveFilteredY:[NSNumber numberWithDouble:value_]];
-}
-
-
-
-
-
-@dynamic filteredZ;
-
-
-
-- (double)filteredZValue {
-	NSNumber *result = [self filteredZ];
-	return [result doubleValue];
-}
-
-- (void)setFilteredZValue:(double)value_ {
-	[self setFilteredZ:[NSNumber numberWithDouble:value_]];
-}
-
-- (double)primitiveFilteredZValue {
-	NSNumber *result = [self primitiveFilteredZ];
-	return [result doubleValue];
-}
-
-- (void)setPrimitiveFilteredZValue:(double)value_ {
-	[self setPrimitiveFilteredZ:[NSNumber numberWithDouble:value_]];
-}
-
 
 
 

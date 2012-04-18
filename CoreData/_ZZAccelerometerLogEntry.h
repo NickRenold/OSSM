@@ -5,9 +5,6 @@
 #import "ZZLogEntry.h"
 
 extern const struct ZZAccelerometerLogEntryAttributes {
-	 NSString *filteredX;
-	 NSString *filteredY;
-	 NSString *filteredZ;
 	 NSString *x;
 	 NSString *y;
 	 NSString *z;
@@ -24,9 +21,6 @@ extern const struct ZZAccelerometerLogEntryFetchedProperties {
 
 
 
-
-
-
 @interface ZZAccelerometerLogEntryID : NSManagedObjectID {}
 @end
 
@@ -35,42 +29,6 @@ extern const struct ZZAccelerometerLogEntryFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (ZZAccelerometerLogEntryID*)objectID;
-
-
-
-
-@property (nonatomic, retain) NSNumber *filteredX;
-
-
-@property double filteredXValue;
-- (double)filteredXValue;
-- (void)setFilteredXValue:(double)value_;
-
-//- (BOOL)validateFilteredX:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, retain) NSNumber *filteredY;
-
-
-@property double filteredYValue;
-- (double)filteredYValue;
-- (void)setFilteredYValue:(double)value_;
-
-//- (BOOL)validateFilteredY:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, retain) NSNumber *filteredZ;
-
-
-@property double filteredZValue;
-- (double)filteredZValue;
-- (void)setFilteredZValue:(double)value_;
-
-//- (BOOL)validateFilteredZ:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -120,33 +78,6 @@ extern const struct ZZAccelerometerLogEntryFetchedProperties {
 @end
 
 @interface _ZZAccelerometerLogEntry (CoreDataGeneratedPrimitiveAccessors)
-
-
-- (NSNumber *)primitiveFilteredX;
-- (void)setPrimitiveFilteredX:(NSNumber *)value;
-
-- (double)primitiveFilteredXValue;
-- (void)setPrimitiveFilteredXValue:(double)value_;
-
-
-
-
-- (NSNumber *)primitiveFilteredY;
-- (void)setPrimitiveFilteredY:(NSNumber *)value;
-
-- (double)primitiveFilteredYValue;
-- (void)setPrimitiveFilteredYValue:(double)value_;
-
-
-
-
-- (NSNumber *)primitiveFilteredZ;
-- (void)setPrimitiveFilteredZ:(NSNumber *)value;
-
-- (double)primitiveFilteredZValue;
-- (void)setPrimitiveFilteredZValue:(double)value_;
-
-
 
 
 - (NSNumber *)primitiveX;

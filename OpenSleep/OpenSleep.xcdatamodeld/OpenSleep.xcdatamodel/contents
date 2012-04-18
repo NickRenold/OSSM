@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ZZAccelerometerLogEntry" representedClassName="ZZAccelerometerLogEntry" parentEntity="ZZLogEntry" syncable="YES">
-        <attribute name="filteredX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="filteredY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="filteredZ" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="x" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="y" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="z" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
