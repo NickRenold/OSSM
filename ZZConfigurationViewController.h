@@ -15,9 +15,22 @@
 
 @interface ZZConfigurationViewController : UITableViewController
 <
-UIAccelerometerDelegate
+UIAccelerometerDelegate,
+AVAudioRecorderDelegate
 >{
-
+	AVAudioPlayer *audioPlayer;
+	AVAudioRecorder *audioRecorder;
+	int recordEncoding;
+	enum
+	{
+		ENC_AAC = 1,
+		ENC_ALAC = 2,
+		ENC_IMA4 = 3,
+		ENC_ILBC = 4,
+		ENC_ULAW = 5,
+		ENC_PCM = 6,
+	} encodingTypes;
+	NSTimer *meteringTimer;
 }
 
 @property (retain, nonatomic) IBOutlet UISegmentedControl *recorderToggle;
@@ -30,5 +43,10 @@ UIAccelerometerDelegate
 - (IBAction)switchChanged:(UISwitch *)sender;
 - (IBAction)recorderSwitchChanged:(UISegmentedControl *)sender;
 
+-(void) startRecording;
+-(void) stopRecording;
+-(void) playRecording;
+-(void) stopPlaying;
+-(void) updateMetering;
 
 @end

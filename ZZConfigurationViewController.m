@@ -35,6 +35,8 @@
 {
     [super viewDidLoad];
 	self.accelerometerCounter=0;
+	recordEncoding = ENC_PCM
+	;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -133,7 +135,7 @@
 	}
 	
 	if(self.microphoneSwitch.isOn){
-
+		[self startRecording];
 	}
 }
 
@@ -143,6 +145,7 @@
 	
 	// Stop the hardware
 	[self stopAccelerometer];
+	[self stopRecording];
 //	[self stopCamera];
 	
 	// Save the log
@@ -159,6 +162,124 @@
 
 #pragma mark - Camera
 #pragma mark - Microphone
+
+-(void) startRecording
+{
+	NSLog(@"startRecording");
+	[audioRecorder release];
+	audioRecorder = nil;
+	
+	// Init audio with record capability
+	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+	[audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+	
+	NSMutableDictionary *recordSettings = [[NSMutableDictionary alloc] initWithCapacity:10];
+	if(recordEncoding == ENC_PCM)
+	{
+		[recordSettings setObject:[NSNumber numberWithInt: kAudioFormatLinearPCM] forKey: AVFormatIDKey];
+		[recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+		[recordSettings setObject:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
+		[recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+		[recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsBigEndianKey];
+		[recordSettings setObject:[NSNumber numberWithBool:NO] forKey:AVLinearPCMIsFloatKey]; 
+	}
+	else
+	{
+		NSNumber *formatObject;
+		
+		switch (recordEncoding) {
+			case (ENC_AAC): 
+				formatObject = [NSNumber numberWithInt: kAudioFormatMPEG4AAC];
+				break;
+			case (ENC_ALAC):
+				formatObject = [NSNumber numberWithInt: kAudioFormatAppleLossless];
+				break;
+			case (ENC_IMA4):
+				formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
+				break;
+			case (ENC_ILBC):
+				formatObject = [NSNumber numberWithInt: kAudioFormatiLBC];
+				break;
+			case (ENC_ULAW):
+				formatObject = [NSNumber numberWithInt: kAudioFormatULaw];
+				break;
+			default:
+				formatObject = [NSNumber numberWithInt: kAudioFormatAppleIMA4];
+		}
+		
+		[recordSettings setObject:formatObject forKey: AVFormatIDKey];
+		[recordSettings setObject:[NSNumber numberWithFloat:44100.0] forKey: AVSampleRateKey];
+		[recordSettings setObject:[NSNumber numberWithInt:2] forKey:AVNumberOfChannelsKey];
+		[recordSettings setObject:[NSNumber numberWithInt:12800] forKey:AVEncoderBitRateKey];
+		[recordSettings setObject:[NSNumber numberWithInt:16] forKey:AVLinearPCMBitDepthKey];
+		[recordSettings setObject:[NSNumber numberWithInt: AVAudioQualityHigh] forKey: AVEncoderAudioQualityKey];
+	}
+	
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *recDir = [paths objectAtIndex:0];
+	NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", recDir]];
+	
+	NSError *error = nil;
+	audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSettings error:&error];
+	audioRecorder.meteringEnabled=YES;
+	audioRecorder.delegate=self;
+	
+	if ([audioRecorder prepareToRecord] == YES){
+		[audioRecorder record];
+		// Create the timer object
+		meteringTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self 
+											   selector:@selector(updateMetering) userInfo:nil repeats:YES];
+		
+	}else {
+		int errorCode = CFSwapInt32HostToBig ([error code]); 
+		NSLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode); 
+		NSLog(@"Error: %@",[error description]);
+		
+	}
+	NSLog(@"recording");
+}
+
+-(void)updateMetering
+{
+	[audioRecorder updateMeters];
+	NSLog(@"Average: %f",[audioRecorder averagePowerForChannel:0]);
+	NSLog(@"Peak: %f",[audioRecorder peakPowerForChannel:0]);
+}
+
+-(void) stopRecording
+{
+	[meteringTimer invalidate];
+	NSLog(@"stopRecording");
+	[audioRecorder stop];
+	NSLog(@"stopped");
+}
+
+#pragma mark - AVAudioRecorder Delegate
+
+
+//-(void) playRecording
+//{
+//	NSLog(@"playRecording");
+//	// Init audio with playback capability
+//	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//	[audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+//	
+//	NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/recordTest.caf", [[NSBundle mainBundle] resourcePath]]];
+//	NSError *error;
+//	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+//	audioPlayer.numberOfLoops = 0;
+//	[audioPlayer play];
+//	NSLog(@"playing");
+//}
+//
+//-(void) stopPlaying
+//{
+//	NSLog(@"stopPlaying");
+//	[audioPlayer stop];
+//	NSLog(@"stopped");
+//}
+
 #pragma mark - Accelerometer
 #define kAccelerometerFrequency        50.0 //Hz
 -(void)startAccelerometer{
@@ -239,6 +360,10 @@
 }
 
 - (void)dealloc {
+	[meteringTimer invalidate];
+	[meteringTimer release];
+	[audioPlayer release];
+	[audioRecorder release];
 	[accelerometerSwitch release];
 	[microphoneSwitch release];
 	[cameraSwitch release];
