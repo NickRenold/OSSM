@@ -11,7 +11,6 @@
 @interface ZZConfigurationViewController ()
 @property int accelerometerCounter;
 @property (nonatomic, retain) NSMutableArray* accelerometerBuffer;
-
 @end
 
 @implementation ZZConfigurationViewController
@@ -22,7 +21,7 @@
 @synthesize log=_log;
 @synthesize accelerometerCounter=_accelerometerCounter;
 @synthesize accelerometerBuffer=_accelerometerBuffer;
-
+	
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -85,7 +84,6 @@
 		}
 	}else if(self.recorderToggle.selectedSegmentIndex==PAUSED_INDEX){
 		[self stopLogging];
-		self.accelerometerSwitch.enabled=YES;
 	}
 }
 
@@ -133,6 +131,10 @@
 	if(self.accelerometerSwitch.isOn){
 		[self startAccelerometer];
 	}
+	
+	if(self.microphoneSwitch.isOn){
+
+	}
 }
 
 -(void)stopLogging{
@@ -141,7 +143,6 @@
 	
 	// Stop the hardware
 	[self stopAccelerometer];
-//	[self stopMicrophone];
 //	[self stopCamera];
 	
 	// Save the log
@@ -151,6 +152,9 @@
 //		NSLog(@"Error saving ZZLog object: %@",[error localizedDescription]);
 		//TODO show alertview popup with error
 //	}
+	
+	self.accelerometerSwitch.enabled=YES;
+	self.microphoneSwitch.enabled=YES;
 }
 
 #pragma mark - Camera

@@ -6,15 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 #import "CoreDataModel.h"
 #import "ZZAppDelegate.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 
 @interface ZZConfigurationViewController : UITableViewController
 <
 UIAccelerometerDelegate
->
+>{
+
+}
 
 @property (retain, nonatomic) IBOutlet UISegmentedControl *recorderToggle;
 @property (retain, nonatomic) IBOutlet UISwitch *accelerometerSwitch;
